@@ -62,11 +62,11 @@
             padding: 0 15px;
         }
 
-        /* Banner Styles - Updated for better responsiveness */
+        /* Banner Styles - Fixed for Android logo positioning */
         .banner {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 2rem 0; /* Reduced padding for better mobile display */
+            padding: 2rem 0;
             text-align: center;
             margin-top: 0;
             position: relative;
@@ -76,18 +76,22 @@
         .banner-content {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Changed to space-between for better distribution */
+            justify-content: space-between;
             gap: 20px;
             width: 100%;
+            flex-wrap: wrap; /* Added for better mobile handling */
         }
 
         .banner-logo {
-            width: 120px; /* Default size for desktop */
+            width: 120px;
             height: 120px;
             object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
             animation: pulse 2s infinite;
-            flex-shrink: 0; /* Prevents logo from shrinking */
+            flex-shrink: 0;
+            /* Added for Android compatibility */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         @keyframes pulse {
@@ -103,22 +107,27 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 15px; /* Added padding for text */
+            padding: 0 15px;
+            /* Added to prevent text shifting */
+            min-width: 0; /* Important for text overflow handling */
         }
 
         .banner-text h1 {
-            font-size: 2.5rem; /* Reduced from 3.5rem for better responsiveness */
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px; /* Reduced letter spacing */
+            letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            line-height: 1.2; /* Added line height for better text flow */
-            word-wrap: break-word; /* Ensures text wraps properly */
+            line-height: 1.2;
+            word-wrap: break-word;
+            /* Added for Android text stability */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .banner-text a {
-            font-size: 1.2rem; /* Reduced from 1.8rem */
+            font-size: 1.2rem;
             color: white;
             text-decoration: none;
             background-color: rgba(255, 255, 255, 0.2);
@@ -131,6 +140,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            /* Added for Android stability */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .banner-text a:hover {
@@ -747,7 +758,7 @@
             margin-top: auto; /* Push date to bottom */
         }
 
-        /* Hindi Pustak Pradarshini Section - New */
+        /* Hindi Pustak Pradarshini Section - Fixed for Hindi text */
         .hindi-pustak-pradarshini {
             padding: 4rem 0;
             background: linear-gradient(135deg, #fff5eb, #ffe8d6);
@@ -887,6 +898,7 @@
             text-overflow: ellipsis;
         }
 
+        /* Fixed Hindi text styling */
         .hindi-pustak-pradarshini-details h3 {
             font-size: 19px;
             color: var(--hindi-pustak-color);
@@ -895,6 +907,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
             line-height: 1.3;
+            /* Added for Hindi text compatibility */
+            font-family: 'Roboto', 'Noto Sans Devanagari', sans-serif;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
         }
 
         .hindi-pustak-pradarshini-details p {
@@ -905,6 +923,9 @@
             text-overflow: ellipsis;
             line-height: 1.4;
             margin-bottom: 10px;
+            /* Added for Hindi text compatibility */
+            font-family: 'Roboto', 'Noto Sans Devanagari', sans-serif;
+            word-break: break-word;
         }
 
         .hindi-pustak-pradarshini-details .date {
@@ -1503,13 +1524,13 @@
         
         /* Extra small devices (phones, 600px and down) */
         @media only screen and (max-width: 600px) {
-            /* Banner responsive styles */
+            /* Banner responsive styles - Fixed for Android */
             .banner {
-                padding: 1.5rem 0; /* Further reduced padding for mobile */
+                padding: 1.5rem 0;
             }
             
             .banner-content {
-                flex-direction: column; /* Changed to column for better mobile layout */
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 15px;
@@ -1517,29 +1538,37 @@
             
             /* Adjust logo sizes for smaller screens */
             .banner-logo {
-                width: 80px; /* Increased from 40px for better visibility */
+                width: 80px;
                 height: 80px;
+                /* Added for Android stability */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             /* Adjust text to be centered and smaller */
             .banner-text {
                 text-align: center;
-                width: 100%; /* Full width for text */
-                order: 2; /* Place text in the middle */
+                width: 100%;
+                order: 2;
+                /* Added for Android text stability */
+                min-width: 0;
             }
             
             .banner-text h1 {
                 font-size: 1.8rem;
                 margin-bottom: 0.5rem;
                 line-height: 1.2;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
             
             .banner-text a {
                 font-size: 0.9rem;
                 padding: 6px 12px;
-                white-space: normal; /* Allow text to wrap */
+                white-space: normal;
                 overflow: visible;
                 text-overflow: initial;
+                -webkit-tap-highlight-color: transparent;
             }
             
             /* Navigation bar responsive styles */
@@ -1618,6 +1647,11 @@
             
             .hindi-pustak-pradarshini-details h3 {
                 font-size: 1.1rem;
+                /* Ensure Hindi text compatibility on mobile */
+                word-break: break-word;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
             }
             
             .hindi-pustak-pradarshini-details p {
@@ -1626,11 +1660,11 @@
             
             /* Hindi Pakwada Gallery adjustments */
             .hindi-pakwada-item {
-                height: 300px; /* Increased height to accommodate text */
+                height: 300px;
             }
             
             .hindi-pakwada-details {
-                height: 40%; /* Increased height for text section */
+                height: 40%;
                 padding: 10px;
             }
             
@@ -1650,11 +1684,11 @@
             
             /* Gomti Gallery adjustments */
             .gomti-item {
-                height: 300px; /* Increased height to accommodate text */
+                height: 300px;
             }
             
             .gomti-details {
-                height: 40%; /* Increased height for text section */
+                height: 40%;
                 padding: 10px;
             }
             
@@ -1719,30 +1753,38 @@
             }
             
             .banner-content {
-                flex-direction: row; /* Keep row layout for tablets */
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 gap: 15px;
             }
             
             .banner-logo {
-                width: 100px; /* Increased from 50px for better visibility */
+                width: 100px;
                 height: 100px;
+                /* Added for Android stability */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             .banner-text {
                 text-align: center;
                 flex-grow: 1;
+                /* Added for Android text stability */
+                min-width: 0;
             }
             
             .banner-text h1 {
                 font-size: 2.2rem;
                 line-height: 1.2;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
             
             .banner-text a {
                 font-size: 1rem;
                 padding: 7px 14px;
+                -webkit-tap-highlight-color: transparent;
             }
             
             /* Navigation bar responsive styles */
@@ -1817,6 +1859,11 @@
             
             .hindi-pustak-pradarshini-details h3 {
                 font-size: 1.2rem;
+                /* Ensure Hindi text compatibility on mobile */
+                word-break: break-word;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
             }
             
             .hindi-pustak-pradarshini-details p {
@@ -1825,11 +1872,11 @@
             
             /* Hindi Pakwada Gallery adjustments */
             .hindi-pakwada-item {
-                height: 330px; /* Increased height */
+                height: 330px;
             }
             
             .hindi-pakwada-details {
-                height: 38%; /* Increased height */
+                height: 38%;
                 padding: 12px;
             }
             
@@ -1849,11 +1896,11 @@
             
             /* Gomti Gallery adjustments */
             .gomti-item {
-                height: 330px; /* Increased height */
+                height: 330px;
             }
             
             .gomti-details {
-                height: 38%; /* Increased height */
+                height: 38%;
                 padding: 12px;
             }
             
@@ -1913,17 +1960,23 @@
             }
             
             .banner-logo {
-                width: 110px; /* Increased from 75px for better visibility */
+                width: 110px;
                 height: 110px;
+                /* Added for Android stability */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             .banner-text h1 {
-                font-size: 2.8rem; /* Adjusted for medium screens */
+                font-size: 2.8rem;
                 line-height: 1.2;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
             
             .banner-text a {
                 font-size: 1.1rem;
+                -webkit-tap-highlight-color: transparent;
             }
             
             /* Video Gallery adjustments */
@@ -1985,17 +2038,23 @@
             }
             
             .banner-logo {
-                width: 130px; /* Slightly smaller than default */
+                width: 130px;
                 height: 130px;
+                /* Added for Android stability */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             .banner-text h1 {
-                font-size: 3rem; /* Adjusted for large screens */
+                font-size: 3rem;
                 line-height: 1.2;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
             
             .banner-text a {
                 font-size: 1.3rem;
+                -webkit-tap-highlight-color: transparent;
             }
             
             .gallery-grid {
@@ -2035,7 +2094,7 @@
         @media only screen and (min-width: 1201px) {
             /* Banner responsive styles */
             .banner {
-                padding: 3rem 0; /* Original padding for large screens */
+                padding: 3rem 0;
             }
             
             .banner-content {
@@ -2043,17 +2102,23 @@
             }
             
             .banner-logo {
-                width: 150px; /* Original size for large screens */
+                width: 150px;
                 height: 150px;
+                /* Added for Android stability */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             .banner-text h1 {
-                font-size: 3.5rem; /* Original size for large screens */
+                font-size: 3.5rem;
                 line-height: 1.2;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
             
             .banner-text a {
                 font-size: 1.5rem;
+                -webkit-tap-highlight-color: transparent;
             }
             
             .gallery-grid {
@@ -2296,6 +2361,11 @@
             
             .hindi-pustak-pradarshini-details h3 {
                 font-size: 1rem;
+                /* Ensure Hindi text compatibility on Android */
+                word-break: break-word;
+                -webkit-hyphens: auto;
+                -ms-hyphens: auto;
+                hyphens: auto;
             }
             
             .hindi-pustak-pradarshini-details p {
@@ -2596,8 +2666,8 @@
                         </div>
                     </div>
                     <div class="video-caption">
-                        <h3>Cultural Events</h3>
-                        <p>Students performing during library cultural events</p>
+                        <h3>Library Opening</h3>
+                        <p>Unlock thousands of new worlds: The new Library is officially open for exploration!</p>
                     </div>
                 </div>
             </div>
@@ -2622,9 +2692,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(1).jpeg" alt="Students Reading Books" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Reading Session</h3>
-                        <p>Students engrossed in reading various Hindi books during the exhibition</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>पठन सत्र</h3>
+                        <p>प्रदर्शनी के दौरान छात्र विभिन्न हिंदी पुस्तकों को पढ़ने में व्यस्त</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2632,9 +2702,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(2).jpeg" alt="Book Exhibition" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Book Exhibition</h3>
-                        <p>Display of diverse Hindi literature collection for students and teachers</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>पुस्तक प्रदर्शनी</h3>
+                        <p>छात्रों और शिक्षकों के लिए विविध हिंदी साहित्य संग्रह की प्रदर्शनी</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2642,9 +2712,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(3).jpeg" alt="Digital Display" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Digital Display</h3>
-                        <p>Digital presentation of Hindi literature resources and information</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>डिजिटल प्रदर्शन</h3>
+                        <p>हिंदी साहित्य संसाधनों और जानकारी की डिजिटल प्रस्तुति</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2652,9 +2722,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(4).jpeg" alt="Cultural Display" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Cultural Display</h3>
-                        <p>Cultural presentation highlighting the importance of Hindi literature</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>सांस्कृतिक प्रदर्शनी</h3>
+                        <p>हिंदी साहित्य के महत्व को उजागर करती सांस्कृतिक प्रस्तुति</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2662,9 +2732,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(5).jpeg" alt="Art Exhibition" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Art Exhibition</h3>
-                        <p>Student artwork and creative displays related to Hindi literature</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>कला प्रदर्शनी</h3>
+                        <p>हिंदी साहित्य से संबंधित छात्र कलाकृतियाँ और रचनात्मक प्रदर्शन</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2672,9 +2742,9 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(6).jpeg" alt="Inauguration Ceremony" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Inauguration Ceremony</h3>
-                        <p>Official inauguration of the Hindi Pustak Pradarshini exhibition</p>
-                        <div class="date">Hindi Pakhwada Celebration</div>
+                        <h3>उद्घाटन समारोह</h3>
+                        <p>हिंदी पुस्तक प्रदर्शनी का आधिकारिक उद्घाटन समारोह</p>
+                        <div class="date">हिंदी पखवाड़ा समारोह</div>
                     </div>
                 </div>
             </div>
@@ -3078,6 +3148,20 @@
     </footer>
 
     <script>
+        // Auto-scroll to video section when page loads
+        window.addEventListener('load', function() {
+            // Small delay to ensure page is fully loaded
+            setTimeout(function() {
+                const videoSection = document.getElementById('video-gallery');
+                if (videoSection) {
+                    videoSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center'
+                    });
+                }
+            }, 500);
+        });
+
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
         const navbarMenu = document.querySelector('.navbar-menu');
