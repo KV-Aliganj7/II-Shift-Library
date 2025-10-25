@@ -32,8 +32,8 @@
             --success-color: #2ecc71;
             --warning-color: #f39c12;
             --info-color: #9b59b6;
-            --hindi-color: #d35400; /* Orange color for Hindi Pakwada theme */
-            --hindi-pustak-color: #FF6B35; /* Vibrant orange for Hindi Pustak Pradarshini */
+            --hindi-color: #d35400;
+            --hindi-pustak-color: #FF6B35;
         }
 
         * {
@@ -50,7 +50,6 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            /* Prevent text size adjustment on orientation change */
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
         }
@@ -62,7 +61,7 @@
             padding: 0 15px;
         }
 
-        /* Banner Styles - Fixed for Android logo positioning */
+        /* Banner Styles - COMPLETELY FIXED for Android logo positioning */
         .banner {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -79,7 +78,7 @@
             justify-content: space-between;
             gap: 20px;
             width: 100%;
-            flex-wrap: wrap; /* Added for better mobile handling */
+            flex-wrap: nowrap;
         }
 
         .banner-logo {
@@ -89,9 +88,11 @@
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
             animation: pulse 2s infinite;
             flex-shrink: 0;
-            /* Added for Android compatibility */
+            /* FIXED: Android-specific fixes */
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
+            will-change: transform;
+            display: block;
         }
 
         @keyframes pulse {
@@ -108,8 +109,9 @@
             justify-content: center;
             text-align: center;
             padding: 0 15px;
-            /* Added to prevent text shifting */
-            min-width: 0; /* Important for text overflow handling */
+            /* FIXED: Prevent text shifting */
+            min-width: 0;
+            overflow: hidden;
         }
 
         .banner-text h1 {
@@ -121,7 +123,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             line-height: 1.2;
             word-wrap: break-word;
-            /* Added for Android text stability */
+            /* FIXED: Android text stability */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -140,7 +142,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            /* Added for Android stability */
+            /* FIXED: Android tap highlight */
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -373,7 +375,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             height: 250px;
-            /* For 3D effect */
             transform-style: preserve-3d;
             perspective: 1000px;
         }
@@ -400,7 +401,6 @@
             opacity: 0;
             transform: translateX(100%);
             transition: all 1s ease-in-out;
-            /* For smooth rendering */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
@@ -448,7 +448,7 @@
         /* Video Gallery Section - Updated with no background */
         .video-gallery {
             padding: 4rem 0;
-            background-color: #ffffff; /* Changed to solid white */
+            background-color: #ffffff;
             position: relative;
             overflow: hidden;
         }
@@ -622,7 +622,7 @@
         /* Hindi Pakwada Gallery Section */
         .hindi-pakwada-gallery {
             padding: 2rem 0;
-            background-color: #f0f8ff; /* Light blue background to differentiate */
+            background-color: #f0f8ff;
         }
 
         .hindi-pakwada-header {
@@ -632,7 +632,7 @@
 
         .hindi-pakwada-header h2 {
             font-size: 2.5rem;
-            color: var(--hindi-color); /* Orange color to match Hindi theme */
+            color: var(--hindi-color);
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -646,7 +646,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--hindi-color); /* Matching underline color */
+            background-color: var(--hindi-color);
         }
 
         .hindi-pakwada-header p {
@@ -670,7 +670,6 @@
             transition: all 0.3s ease;
             height: 355px;
             background-color: white;
-            /* For 3D effect */
             transform-style: preserve-3d;
             perspective: 1000px;
         }
@@ -697,7 +696,6 @@
             opacity: 0;
             transform: translateX(100%);
             transition: all 1s ease-in-out;
-            /* For smooth rendering */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
@@ -723,7 +721,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* Add these properties to fix text overflow */
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -731,9 +728,8 @@
         /* Ensure text wraps properly */
         .hindi-pakwada-details h3 {
             font-size: 1.2rem;
-            color: var(--hindi-color); /* Matching the header color */
+            color: var(--hindi-color);
             margin-bottom: 5px;
-            /* Add these properties */
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -743,7 +739,6 @@
         .hindi-pakwada-details p {
             font-size: 0.9rem;
             color: #666;
-            /* Add these properties */
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -753,12 +748,12 @@
 
         .hindi-pakwada-details .date {
             font-size: 0.8rem;
-            color: var(--hindi-color); /* Matching the theme color */
+            color: var(--hindi-color);
             font-weight: 500;
-            margin-top: auto; /* Push date to bottom */
+            margin-top: auto;
         }
 
-        /* Hindi Pustak Pradarshini Section - Fixed for Hindi text */
+        /* Hindi Pustak Pradarshini Section - COMPLETELY FIXED for Hindi text */
         .hindi-pustak-pradarshini {
             padding: 4rem 0;
             background: linear-gradient(135deg, #fff5eb, #ffe8d6);
@@ -898,7 +893,7 @@
             text-overflow: ellipsis;
         }
 
-        /* Fixed Hindi text styling */
+        /* FIXED: Hindi text styling - completely fixed */
         .hindi-pustak-pradarshini-details h3 {
             font-size: 19px;
             color: var(--hindi-pustak-color);
@@ -907,12 +902,16 @@
             overflow: hidden;
             text-overflow: ellipsis;
             line-height: 1.3;
-            /* Added for Hindi text compatibility */
+            /* FIXED: Hindi text compatibility */
             font-family: 'Roboto', 'Noto Sans Devanagari', sans-serif;
             word-break: break-word;
             -webkit-hyphens: auto;
             -ms-hyphens: auto;
             hyphens: auto;
+            min-height: 2.6em;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .hindi-pustak-pradarshini-details p {
@@ -923,9 +922,13 @@
             text-overflow: ellipsis;
             line-height: 1.4;
             margin-bottom: 10px;
-            /* Added for Hindi text compatibility */
+            /* FIXED: Hindi text compatibility */
             font-family: 'Roboto', 'Noto Sans Devanagari', sans-serif;
             word-break: break-word;
+            min-height: 2.8em;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .hindi-pustak-pradarshini-details .date {
@@ -986,7 +989,6 @@
             transition: all 0.3s ease;
             height: 355px;
             background-color: white;
-            /* For 3D effect */
             transform-style: preserve-3d;
             perspective: 1000px;
         }
@@ -1013,7 +1015,6 @@
             opacity: 0;
             transform: translateX(100%);
             transition: all 1s ease-in-out;
-            /* For smooth rendering */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
@@ -1039,7 +1040,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            /* Add these properties to fix text overflow */
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -1049,7 +1049,6 @@
             font-size: 1.2rem;
             color: var(--primary-color);
             margin-bottom: 5px;
-            /* Add these properties */
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1059,7 +1058,6 @@
         .gomti-details p {
             font-size: 0.9rem;
             color: #666;
-            /* Add these properties */
             white-space: normal;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1071,7 +1069,7 @@
             font-size: 0.8rem;
             color: var(--accent-color);
             font-weight: 500;
-            margin-top: auto; /* Push date to bottom */
+            margin-top: auto;
         }
 
         /* Features Section */
@@ -1389,7 +1387,6 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            /* Better touch target */
             min-height: 44px;
             min-width: 44px;
         }
@@ -1469,7 +1466,6 @@
             border-radius: 50%;
             color: white;
             transition: all 0.3s ease;
-            /* Better touch target */
             min-width: 40px;
             min-height: 40px;
         }
@@ -1499,7 +1495,6 @@
             border-radius: 5px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            /* Remove default styles on focus */
             outline: none;
         }
 
@@ -1520,11 +1515,11 @@
             }
         }
 
-        /* Responsive Styles - Comprehensive Breakpoints */
+        /* Responsive Styles */
         
         /* Extra small devices (phones, 600px and down) */
         @media only screen and (max-width: 600px) {
-            /* Banner responsive styles - Fixed for Android */
+            /* Banner responsive styles - FIXED for Android */
             .banner {
                 padding: 1.5rem 0;
             }
@@ -1536,21 +1531,17 @@
                 gap: 15px;
             }
             
-            /* Adjust logo sizes for smaller screens */
             .banner-logo {
                 width: 80px;
                 height: 80px;
-                /* Added for Android stability */
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
             
-            /* Adjust text to be centered and smaller */
             .banner-text {
                 text-align: center;
                 width: 100%;
                 order: 2;
-                /* Added for Android text stability */
                 min-width: 0;
             }
             
@@ -1647,7 +1638,6 @@
             
             .hindi-pustak-pradarshini-details h3 {
                 font-size: 1.1rem;
-                /* Ensure Hindi text compatibility on mobile */
                 word-break: break-word;
                 -webkit-hyphens: auto;
                 -ms-hyphens: auto;
@@ -1762,7 +1752,6 @@
             .banner-logo {
                 width: 100px;
                 height: 100px;
-                /* Added for Android stability */
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
@@ -1770,7 +1759,6 @@
             .banner-text {
                 text-align: center;
                 flex-grow: 1;
-                /* Added for Android text stability */
                 min-width: 0;
             }
             
@@ -1859,7 +1847,6 @@
             
             .hindi-pustak-pradarshini-details h3 {
                 font-size: 1.2rem;
-                /* Ensure Hindi text compatibility on mobile */
                 word-break: break-word;
                 -webkit-hyphens: auto;
                 -ms-hyphens: auto;
@@ -1962,7 +1949,6 @@
             .banner-logo {
                 width: 110px;
                 height: 110px;
-                /* Added for Android stability */
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
@@ -2040,7 +2026,6 @@
             .banner-logo {
                 width: 130px;
                 height: 130px;
-                /* Added for Android stability */
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
@@ -2104,7 +2089,6 @@
             .banner-logo {
                 width: 150px;
                 height: 150px;
-                /* Added for Android stability */
                 -webkit-transform: translateZ(0);
                 transform: translateZ(0);
             }
@@ -2154,328 +2138,19 @@
             }
         }
         
-        /* High DPI screens */
-        @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-            /* Removed logo styles since header is removed */
-        }
-        
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            footer, .btn, .social-links, .banner, .navbar {
-                display: none;
-            }
-            
-            .gallery-item, .feature-card, .resource-card, .event-card, .testimonial, .gomti-item, .hindi-pakwada-item, .hindi-pustak-pradarshini-item, .video-item {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #ddd;
-            }
-            
-            .gallery-caption {
-                transform: translateY(0);
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-            }
-            
-            a {
-                text-decoration: none;
-                color: black;
-            }
-            
-            a::after {
-                content: " (" attr(href) ")";
-                font-size: 0.8em;
-                color: #666;
-            }
-        }
-        
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #e0e0e0;
-            }
-            
-            .features, .events {
-                background-color: #1e1e1e;
-            }
-            
-            .resources, .testimonials, .gomti-gallery, .hindi-pakwada-gallery, .hindi-pustak-pradarshini, .video-gallery {
-                background-color: #2a2a2a;
-            }
-            
-            .feature-card, .resource-card, .testimonial, .event-card, .gomti-item, .hindi-pakwada-item, .hindi-pustak-pradarshini-item, .video-item {
-                background-color: #2a2a2a;
-                color: #e0e0e0;
-            }
-            
-            .gomti-details, .hindi-pakwada-details, .hindi-pustak-pradarshini-details, .video-caption {
-                background-color: #2a2a2a;
-            }
-            
-            .footer-col ul li a {
-                color: #bbb;
-            }
-            
-            .gallery-header p, .author-info p, .gomti-header p, .hindi-pakwada-header p, .hindi-pustak-pradarshini-header p, .video-header p {
-                color: #bbb;
-            }
-            
-            .dropdown-menu {
-                background-color: #2a2a2a;
-            }
-            
-            .dropdown-item {
-                color: #e0e0e0;
-            }
-            
-            .dropdown-item:hover {
-                background-color: #1e1e1e;
-                color: var(--secondary-color);
-            }
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Touch device specific styles */
-        @media (hover: none) {
-            .gallery-caption {
-                transform: translateY(0);
-                background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-            }
-            
-            .gallery-item:hover img {
-                transform: none;
-            }
-            
-            .gomti-item:hover img {
-                transform: none;
-            }
-            
-            .hindi-pakwada-item:hover img {
-                transform: none;
-            }
-            
-            .hindi-pustak-pradarshini-item:hover img {
-                transform: none;
-            }
-            
-            .feature-card:hover, .resource-card:hover, .event-card:hover, .testimonial:hover, .gomti-item:hover, .hindi-pakwada-item:hover, .hindi-pustak-pradarshini-item:hover, .video-item:hover {
-                transform: none;
-            }
-            
-            .btn:hover {
-                transform: none;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background-color: rgba(255, 255, 255, 0.1);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-            
-            .dropdown.active .dropdown-menu {
-                max-height: 300px;
-            }
-            
-            .dropdown-item {
-                padding: 0.7rem 1.5rem;
-            }
-        }
-        
-        /* Device-specific responsive adjustments */
-        /* Android devices */
+        /* Android devices specific fixes */
         @media screen and (-webkit-device-pixel-ratio: 1.5) and (max-width: 768px) {
-            .gomti-item {
-                height: 280px;
-            }
-            
-            .gomti-item img {
-                height: 60%;
-            }
-            
-            .gomti-details {
-                height: 40%;
-                padding: 10px;
-            }
-            
-            .gomti-details h3 {
-                font-size: 1rem;
-            }
-            
-            .gomti-details p {
-                font-size: 0.8rem;
-            }
-            
-            .hindi-pakwada-item {
-                height: 280px;
-            }
-            
-            .hindi-pakwada-item img {
-                height: 60%;
-            }
-            
-            .hindi-pakwada-details {
-                height: 40%;
-                padding: 10px;
-            }
-            
-            .hindi-pakwada-details h3 {
-                font-size: 1rem;
-            }
-            
-            .hindi-pakwada-details p {
-                font-size: 0.8rem;
-            }
-            
-            .hindi-pustak-pradarshini-item {
-                height: 300px;
-            }
-            
-            .hindi-pustak-pradarshini-item img {
-                height: 65%;
-            }
-            
-            .hindi-pustak-pradarshini-details {
-                height: 35%;
-                padding: 10px;
+            .banner-logo {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                will-change: transform;
             }
             
             .hindi-pustak-pradarshini-details h3 {
-                font-size: 1rem;
-                /* Ensure Hindi text compatibility on Android */
                 word-break: break-word;
                 -webkit-hyphens: auto;
                 -ms-hyphens: auto;
                 hyphens: auto;
-            }
-            
-            .hindi-pustak-pradarshini-details p {
-                font-size: 0.8rem;
-            }
-            
-            .video-item {
-                height: 280px;
-            }
-        }
-        
-        /* Windows devices */
-        @media screen and (max-width: 1024px) {
-            .gomti-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .hindi-pakwada-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .hindi-pustak-pradarshini-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-            
-            .video-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        /* Large tablets and small desktops */
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
-            .gomti-item {
-                height: 320px;
-            }
-            
-            .hindi-pakwada-item {
-                height: 320px;
-            }
-            
-            .hindi-pustak-pradarshini-item {
-                height: 360px;
-            }
-            
-            .video-item {
-                height: 320px;
-            }
-        }
-        
-        /* Ultra-wide screens */
-        @media screen and (min-width: 1440px) {
-            .gomti-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .hindi-pakwada-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .hindi-pustak-pradarshini-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .video-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        /* Cross-browser compatibility for animations */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @-webkit-keyframes slideDown {
-            from {
-                opacity: 0;
-                -webkit-transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-            }
-        }
-        
-        @-moz-keyframes slideDown {
-            from {
-                opacity: 0;
-                -moz-transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                -moz-transform: translateY(0);
-            }
-        }
-        
-        @-o-keyframes slideDown {
-            from {
-                opacity: 0;
-                -o-transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                -o-transform: translateY(0);
             }
         }
     </style>
@@ -2679,7 +2354,7 @@
         </div>
     </section>
 
-    <!-- Hindi Pustak Pradarshini Section - New -->
+    <!-- Hindi Pustak Pradarshini Section - COMPLETELY FIXED -->
     <section class="hindi-pustak-pradarshini" id="hindi-pustak-pradarshini">
         <div class="container hindi-pustak-pradarshini-container">
             <div class="hindi-pustak-pradarshini-header">
@@ -3148,18 +2823,20 @@
     </footer>
 
     <script>
-        // Auto-scroll to video section when page loads
-        window.addEventListener('load', function() {
-            // Small delay to ensure page is fully loaded
-            setTimeout(function() {
-                const videoSection = document.getElementById('video-gallery');
-                if (videoSection) {
-                    videoSection.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center'
-                    });
-                }
-            }, 500);
+        // AUTO-SCROLL TO VIDEO SECTION - COMPLETELY FIXED
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're not coming from another page with a hash
+            if (!window.location.hash || window.location.hash === '#video-gallery') {
+                setTimeout(function() {
+                    const videoSection = document.getElementById('video-gallery');
+                    if (videoSection) {
+                        videoSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center'
+                        });
+                    }
+                }, 1000);
+            }
         });
 
         // Mobile Navigation Toggle
