@@ -138,9 +138,9 @@
             transform: translateY(-2px);
         }
 
-        /* Navigation Bar Styles */
+        /* Navigation Bar Styles - Fixed color consistency */
         .navbar {
-            background-color: var(--primary-color);
+            background-color: var(--primary-color) !important;
             padding: 0;
             position: sticky;
             top: 0;
@@ -1502,40 +1502,40 @@
         
         /* Extra small devices (phones, 600px and down) */
         @media only screen and (max-width: 600px) {
-            /* Banner responsive styles */
+            /* Banner responsive styles - FIXED LOGO POSITIONING */
             .banner {
                 padding: 1.5rem 0; /* Further reduced padding for mobile */
             }
             
             .banner-content {
-                flex-direction: column; /* Changed to column for better mobile layout */
-                justify-content: center;
+                flex-direction: row; /* Keep logos at sides even on mobile */
+                justify-content: space-between;
                 align-items: center;
-                gap: 15px;
+                gap: 10px;
             }
             
             /* Adjust logo sizes for smaller screens */
             .banner-logo {
-                width: 80px; /* Increased from 40px for better visibility */
-                height: 80px;
+                width: 60px; /* Smaller but still visible */
+                height: 60px;
             }
             
             /* Adjust text to be centered and smaller */
             .banner-text {
                 text-align: center;
-                width: 100%; /* Full width for text */
-                order: 2; /* Place text in the middle */
+                width: auto; /* Don't take full width */
+                flex-grow: 1;
             }
             
             .banner-text h1 {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
                 margin-bottom: 0.5rem;
                 line-height: 1.2;
             }
             
             .banner-text a {
-                font-size: 0.9rem;
-                padding: 6px 12px;
+                font-size: 0.8rem;
+                padding: 5px 10px;
                 white-space: normal; /* Allow text to wrap */
                 overflow: visible;
                 text-overflow: initial;
@@ -1547,7 +1547,7 @@
                 left: -100%;
                 top: 70px;
                 flex-direction: column;
-                background-color: var(--primary-color);
+                background-color: var(--primary-color) !important; /* Fixed color consistency */
                 width: 100%;
                 text-align: center;
                 transition: 1s;
@@ -1712,7 +1712,7 @@
         
         /* Small devices (portrait tablets and large phones, 601px to 768px) */
         @media only screen and (min-width: 601px) and (max-width: 768px) {
-            /* Banner responsive styles */
+            /* Banner responsive styles - FIXED LOGO POSITIONING */
             .banner {
                 padding: 1.8rem 0;
             }
@@ -1725,8 +1725,8 @@
             }
             
             .banner-logo {
-                width: 100px; /* Increased from 50px for better visibility */
-                height: 100px;
+                width: 80px; /* Increased from 50px for better visibility */
+                height: 80px;
             }
             
             .banner-text {
@@ -1735,13 +1735,13 @@
             }
             
             .banner-text h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
                 line-height: 1.2;
             }
             
             .banner-text a {
-                font-size: 1rem;
-                padding: 7px 14px;
+                font-size: 0.9rem;
+                padding: 6px 12px;
             }
             
             /* Navigation bar responsive styles */
@@ -1750,7 +1750,7 @@
                 left: -100%;
                 top: 70px;
                 flex-direction: column;
-                background-color: var(--primary-color);
+                background-color: var(--primary-color) !important; /* Fixed color consistency */
                 width: 100%;
                 text-align: center;
                 transition: 1s;
@@ -1912,17 +1912,17 @@
             }
             
             .banner-logo {
-                width: 110px; /* Increased from 75px for better visibility */
-                height: 110px;
+                width: 100px; /* Increased from 75px for better visibility */
+                height: 100px;
             }
             
             .banner-text h1 {
-                font-size: 2.8rem; /* Adjusted for medium screens */
+                font-size: 2.5rem; /* Adjusted for medium screens */
                 line-height: 1.2;
             }
             
             .banner-text a {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             /* Video Gallery adjustments */
@@ -1984,17 +1984,17 @@
             }
             
             .banner-logo {
-                width: 130px; /* Slightly smaller than default */
-                height: 130px;
+                width: 120px; /* Slightly smaller than default */
+                height: 120px;
             }
             
             .banner-text h1 {
-                font-size: 3rem; /* Adjusted for large screens */
+                font-size: 2.8rem; /* Adjusted for large screens */
                 line-height: 1.2;
             }
             
             .banner-text a {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .gallery-grid {
@@ -2236,8 +2236,25 @@
         }
         
         /* Device-specific responsive adjustments */
-        /* Android devices */
+        /* Android devices - FIXED LOGO POSITIONING */
         @media screen and (-webkit-device-pixel-ratio: 1.5) and (max-width: 768px) {
+            .banner-content {
+                flex-direction: row !important; /* Force horizontal layout on Android */
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .banner-logo {
+                width: 70px;
+                height: 70px;
+                flex-shrink: 0;
+            }
+            
+            .banner-text {
+                flex-grow: 1;
+                min-width: 0;
+            }
+            
             .gomti-item {
                 height: 280px;
             }
@@ -2408,7 +2425,7 @@
             }
         }
         
-        /* Android specific fixes */
+        /* Android specific fixes - FIXED LOGO POSITIONING */
         @media screen and (max-width: 768px) {
             .banner-content {
                 flex-wrap: nowrap;
@@ -2516,7 +2533,8 @@
                     <a href="#Digital Libraries" class="navbar-link dropdown-toggle">Digital Libraries</a>
                     <div class="dropdown-menu">
                         <a href="https://digitallibrary.io/" class="dropdown-item">Digital Library</a>
-                        <a href="https://archive.org/" class="dropdown-item">Internet Archive</a>
+                        <a href="https://ejournals.eu/en/" class="dropdown-item">E- Journals</a>
+                        <a href="https://archive.org/details/iacl" class="dropdown-item">E- Books</a>
                         <a href="https://ndl.education.gov.in/home" class="dropdown-item">National Digital Library</a>
                         <a href="https://books.google.co.in/" class="dropdown-item">Google E- Book Content</a>
                     </div>
@@ -2547,7 +2565,7 @@
                         <a href="https://epathshala.nic.in/" class="dropdown-item">ePathshala</a>
                         <a href="https://ncert.nic.in/ncertldd/collection/online_journal.html" class="dropdown-item">NCERT Online Journal</a>
                         <a href="https://storyweaver.org.in/" class="dropdown-item">StoryWeaver</a>
-                        <a href="https://www.nationalgeographic.com/" class="dropdown-item">National Geographic</a>
+                        <a href="https://www.nationalgeographic.com/science" class="dropdown-item">National Geographic</a>
                         <a href="https://apnews.com/hub/student-news#" class="dropdown-item">AP Student News</a>
                         <a href="https://ncert.nic.in/dee/barkha-series.php?ln=en" class="dropdown-item highlighted-link">Barkha Series (NCERT)</a>
                     </div>
@@ -2711,8 +2729,8 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(3).jpeg" alt="Digital Display" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Digital Display</h3>
-                        <p>Digital presentation of Hindi literature resources and information</p>
+                        <h3>Hindi Book Exhibition</h3>
+                        <p>The wonderful world of Hindi.</p>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2720,8 +2738,8 @@
                         <img src="Hindi Pustak Pradarshini\Hindi Pustak Pradarshini(4).jpeg" alt="Cultural Display" class="active">
                     </div>
                     <div class="hindi-pustak-pradarshini-details">
-                        <h3>Cultural Display</h3>
-                        <p>Cultural presentation highlighting the importance of Hindi literature</p>
+                        <h3>CHindi Book Exhibition</h3>
+                        <p>The magic of words, the journey of books, the warmth of Hindi.</p>
                     </div>
                 </div>
                 <div class="hindi-pustak-pradarshini-item">
@@ -2857,6 +2875,7 @@
                     <p>Test your knowledge with our interactive quiz platform featuring questions from various subjects and reading materials available in the library.</p>
                     <a href="Quiz Web-Page\Quiz.html" class="btn" target="_blank" style="margin-top: 15px;">Take Quiz</a>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -2873,7 +2892,7 @@
                 <button class="tab-btn" data-tab="digital" aria-pressed="false">Digital Resources</button>
                 <button class="tab-btn" data-tab="study-materials" aria-pressed="false">Study Materials</button>
                 <button class="tab-btn" data-tab="digital-libraries" aria-pressed="false">Digital Libraries</button>
-                <button class="tab-btn" data-tab="educational-portals" aria-pressed="false" style="background-color: rgb(97, 209, 175);">DIGITAL LIBRARY PORTAL</button>
+                <button class="tab-btn" data-tab="educational-portals" aria-pressed="false" style="background-color: rgb(97, 209, 175);">DIGITAL LIBRARY PORTAL(E- Content)</button>
                 <button class="tab-btn" data-tab="ncf-splitup" aria-pressed="false">NCF & Split Up</button>
             </div>
             <div class="tab-content active" id="books" aria-hidden="false">
@@ -3047,7 +3066,7 @@
                         <div class="resource-info">
                             <h4>Internet Archive</h4>
                             <p>A non-profit library of millions of free books, movies, software, music, websites, and more.</p>
-                            <a href="https://archive.org/" class="btn" target="_blank">Visit</a>
+                            <a href="https://archive.org/details/iacl" class="btn" target="_blank">Visit</a>
                         </div>
                     </div>
                     <div class="resource-card">
@@ -3117,7 +3136,7 @@
                         <div class="resource-info">
                             <h4>National Geographic</h4>
                             <p>Educational content about science, geography, and culture.</p>
-                            <a href="https://www.nationalgeographic.com/" class="btn" target="_blank">Visit</a>
+                            <a href="https://www.nationalgeographic.com/science" class="btn" target="_blank">Visit</a>
                         </div>
                     </div>
                     <div class="resource-card">
@@ -3235,15 +3254,6 @@
     </footer>
 
     <script>
-        // Auto-scroll to video section on page load
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const videoSection = document.getElementById('video-gallery');
-                if (videoSection) {
-                    videoSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 1000); // Delay of 1 second to ensure page is fully loaded
-        });
 
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
@@ -3664,6 +3674,14 @@
                 closeAllDropdowns();
             });
         }
+        
+        // Force consistent navbar color on all devices
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                navbar.style.backgroundColor = 'var(--primary-color)';
+            }
+        });
     </script>
 </body>
 </html>
